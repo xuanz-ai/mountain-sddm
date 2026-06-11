@@ -2,7 +2,7 @@
 
 Retro pixel-style SDDM login theme. Dark background, Silkscreen pixel clock, amber accents, Hyprland-first session picker, and a terminal-log overlay for login and system actions.
 
-![screenshot](screenshot.png)
+![[Pasted image 20260611222943.png]]
 
 ## Features
 
