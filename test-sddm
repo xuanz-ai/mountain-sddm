@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+THEME_DIR="$(cd "$(dirname "$0")" && pwd)"
+THEME_NAME="$(basename "$THEME_DIR")"
+INSTALL_PATH="/usr/share/sddm/themes/$THEME_NAME"
+
+echo "==> Installing theme to $INSTALL_PATH"
+sudo rm -rf "$INSTALL_PATH"
+sudo cp -r "$THEME_DIR" "$INSTALL_PATH"
+
+# Auto-detect greeter: prefer Qt6, fall back to Qt5
+if command -v sddm-greeter-qt6 &>/dev/null; then
+    GREETER=sddm-greeter-qt6
+elif command -v sddm-greeter &>/dev/null; then
+    GREETER=sddm-greeter
+else
+    echo "ERROR: sddm-greeter not found. Install sddm first."
+    exit 1
+fi
+
+echo "==> Launching $GREETER --test-mode --theme $INSTALL_PATH"
+exec "$GREETER" --test-mode --theme "$INSTALL_PATH"
