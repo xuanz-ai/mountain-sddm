@@ -4,7 +4,7 @@ Retro pixel-style SDDM login theme. Dark background, Silkscreen pixel clock, amb
 
 ![Preview](image.png)
 
-## Features  
+## Features
 
 - **Pixel clock** — Silkscreen font with large centered time display
 - **Amber-on-dark palette** — amber (`#d8a657`) accents on a dimly lit dark panel
@@ -13,12 +13,17 @@ Retro pixel-style SDDM login theme. Dark background, Silkscreen pixel clock, amb
 - **Resolution-aware scaling** — sizes scale to fit the screen while respecting configurable caps
 - **Single-file** — the entire theme is one `Main.qml`, easy to hack on
 
-## Requirements
+## Quick start
 
-- SDDM (greeter tested with both Qt5 and Qt6)
-- JetBrains Mono installed (`/usr/share/fonts/TTF/JetBrainsMono-*.ttf`) — falls back to system monospace if missing
+```bash
+git clone https://github.com/xuanz-ai/mountain-sddm.git
+cd mountain-sddm
+./test-sddm
+```
 
-## Install
+That's it — the script installs the theme and opens SDDM greeter in test mode so you can preview immediately. No logout needed.
+
+## Permanent install
 
 ```bash
 sudo cp -r . /usr/share/sddm/themes/mountain/
@@ -31,13 +36,10 @@ Then set the theme in `/etc/sddm.conf`:
 Current=mountain
 ```
 
-## Preview (no logout needed)
+## Requirements
 
-```bash
-./test-sddm
-```
-
-This copies the theme to SDDM's theme directory and launches `sddm-greeter --test-mode`. The script auto-detects Qt5 or Qt6.
+- SDDM (greeter tested with both Qt5 and Qt6)
+- JetBrains Mono (`/usr/share/fonts/TTF/JetBrainsMono-*.ttf`) — falls back to system monospace if missing
 
 ## File structure
 
@@ -54,8 +56,10 @@ This copies the theme to SDDM's theme directory and launches `sddm-greeter --tes
 All styling is in `Main.qml`. Key values near the top:
 
 - **Colors** — look for hex strings (`#d5c89a`, `#16161D`, etc.)
-- **Sizing** — the `sc` property (line 63) drives all scaling; individual base sizes are hardcoded multipliers (e.g. `380 * root.sc` for panel width)
+- **Sizing** — the `sc` property drives all scaling; individual base sizes are hardcoded multipliers (e.g. `380 * root.sc` for panel width)
 - **Font sizes** — `Math.min(root.width * 0.10, 150)` for the clock, `11 * root.sc` for body text
+
+After editing, run `./test-sddm` again to preview your changes.
 
 ## License
 
