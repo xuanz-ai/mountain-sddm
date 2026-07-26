@@ -367,9 +367,9 @@ Rectangle {
 
         Repeater {
             model: [
-                { key: "F10", label: "Suspend", action: "suspend" },
-                { key: "F11", label: "Reboot", action: "reboot" },
-                { key: "F12", label: "PowerOff", action: "poweroff" }
+                { label: "Suspend", action: "suspend" },
+                { label: "Reboot", action: "reboot" },
+                { label: "PowerOff", action: "poweroff" }
             ]
 
             Row {
@@ -378,18 +378,6 @@ Rectangle {
 
                 property string actionStr: modelData.action
 
-                Text {
-                    text: modelData.key
-                    font.family: monoBoldFont()
-                    font.pixelSize: Math.round(11 * sc)
-                    color: "#b6b09e"
-                }
-                Text {
-                    text: ":"
-                    font.family: monoFont()
-                    font.pixelSize: Math.round(11 * sc)
-                    color: "#b6b09e"
-                }
                 Text {
                     text: modelData.label
                     font.family: monoFont()
@@ -600,15 +588,9 @@ Rectangle {
         if (userModel.count > 0) {
             userCombo.currentIndex = 0
         }
-        // Prefer Hyprland session if available
+        // Gunakan session terakhir yang disimpan SDDM di state.conf
         if (sessionModel.count > 0) {
-            // The ComboBox lets us enumerate by changing currentIndex
-            for (var i = 0; i < sessionModel.count; i++) {
-                sessionCombo.currentIndex = i
-                if (sessionCombo.currentText.indexOf("Hyprland") >= 0) {
-                    break
-                }
-            }
+            sessionCombo.currentIndex = sessionModel.lastIndex
         }
         passwordInput.focus = true
     }
