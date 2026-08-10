@@ -334,22 +334,6 @@ Rectangle {
                             focus: true
 
                             onAccepted: attemptLogin()
-
-                            Rectangle {
-                                anchors.right: parent.right
-                                anchors.rightMargin: -8 * root.sc
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: 6 * root.sc; height: 6 * root.sc; radius: 3 * root.sc
-                                color: "#d5c89a"
-                                opacity: passwordInput.activeFocus ? 0.75 : 0.3
-
-                                SequentialAnimation on opacity {
-                                    running: passwordInput.activeFocus
-                                    loops: Animation.Infinite
-                                    NumberAnimation { from: 0.3; to: 1.0; duration: 1500 }
-                                    NumberAnimation { from: 1.0; to: 0.3; duration: 1500 }
-                                }
-                            }
                         }
                     }
                 }
@@ -362,7 +346,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16 * sc
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 24 * sc
+        spacing: 30 * sc
         z: 10
 
         Repeater {
@@ -584,13 +568,13 @@ Rectangle {
 
     // ── Initialization ─────────────────────────────────────────────
     Component.onCompleted: {
-        // Select first available user
+        // Ambil user terakhir dari state.conf (konsep sama dengan session)
         if (userModel.count > 0) {
-            userCombo.currentIndex = 0
+            userCombo.currentIndex = Math.max(0, userModel.lastIndex)
         }
         // Gunakan session terakhir yang disimpan SDDM di state.conf
         if (sessionModel.count > 0) {
-            sessionCombo.currentIndex = sessionModel.lastIndex
+            sessionCombo.currentIndex = Math.max(0, sessionModel.lastIndex)
         }
         passwordInput.focus = true
     }

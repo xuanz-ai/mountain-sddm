@@ -36,6 +36,17 @@ Then set the theme in `/etc/sddm.conf`:
 Current=mountain
 ```
 
+## Touchpad tap-to-click
+
+SDDM greeter runs in its own session and doesn't inherit your desktop's touchpad settings. If tap-to-click doesn't work on the lock screen:
+
+```bash
+sudo ./install-touchpad-fix
+sudo systemctl restart sddm
+```
+
+This creates `/etc/X11/xorg.conf.d/30-touchpad.conf` with libinput tap-to-click enabled.
+
 ## Requirements
 
 - SDDM (greeter tested with both Qt5 and Qt6)
@@ -50,6 +61,7 @@ Current=mountain
 | `fonts/Silkscreen-*.ttf` | Pixel clock font |
 | `mountain-night.jpg` | Default background |
 | `test-sddm` | Install + preview script |
+| `install-touchpad-fix` | Enable tap-to-click on SDDM lock screen |
 
 ## Customizing
 

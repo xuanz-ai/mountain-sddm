@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+DIR=/etc/X11/xorg.conf.d
+FILE="$DIR/30-touchpad.conf"
+
+echo "==> Creating $FILE"
+sudo mkdir -p "$DIR"
+sudo tee "$FILE" > /dev/null << 'EOF'
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection
+EOF
+
+echo "==> Done. Restart SDDM to apply:"
+echo "    sudo systemctl restart sddm"
