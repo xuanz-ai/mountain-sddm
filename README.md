@@ -1,13 +1,13 @@
-# mountain-sddm
+# qext-sddm
 
-Retro pixel-style SDDM login theme. Dark background, Silkscreen pixel clock, amber accents, Hyprland-first session picker, and a terminal-log overlay for login and system actions.
+Retro pixel-style SDDM login theme. Dark plum background, Silkscreen pixel clock, burnt orange & warm gold accents, Hyprland-first session picker, and a terminal-log overlay for login and system actions.
 
 ![Preview](image.png)
 
 ## Features
 
 - **Pixel clock** — Silkscreen font with large centered time display
-- **Amber-on-dark palette** — amber (`#d8a657`) accents on a dimly lit dark panel
+- **Warm palette** — burnt orange (`#914C05`) and warm gold (`#C68C4F`) accents on dark plum background
 - **Hyprland-first** — auto-selects the Hyprland session if available
 - **Terminal-log overlay** — simulated `[  OK  ]` / `[ FAIL ]` log lines appear during login, suspend, reboot, and poweroff
 - **Resolution-aware scaling** — sizes scale to fit the screen while respecting configurable caps
@@ -16,8 +16,8 @@ Retro pixel-style SDDM login theme. Dark background, Silkscreen pixel clock, amb
 ## Quick start
 
 ```bash
-git clone https://github.com/xuanz-ai/mountain-sddm.git
-cd mountain-sddm
+git clone https://github.com/xuanz-ai/qext-sddm.git
+cd qext-sddm
 ./test-sddm
 ```
 
@@ -26,14 +26,14 @@ That's it — the script installs the theme and opens SDDM greeter in test mode 
 ## Permanent install
 
 ```bash
-sudo cp -r . /usr/share/sddm/themes/mountain/
+sudo cp -r . /usr/share/sddm/themes/qext-sddm/
 ```
 
 Then set the theme in `/etc/sddm.conf`:
 
 ```ini
 [Theme]
-Current=mountain
+Current=qext-sddm
 ```
 
 ## Touchpad tap-to-click
@@ -67,7 +67,7 @@ This creates `/etc/X11/xorg.conf.d/30-touchpad.conf` with libinput tap-to-click 
 
 All styling is in `Main.qml`. Key values near the top:
 
-- **Colors** — look for hex strings (`#d5c89a`, `#16161D`, etc.)
+- **Colors** — look for hex strings (`#C68C4F`, `#0E0508`, `#914C05`, etc.)
 - **Sizing** — the `sc` property drives all scaling; individual base sizes are hardcoded multipliers (e.g. `380 * root.sc` for panel width)
 - **Font sizes** — `Math.min(root.width * 0.10, 150)` for the clock, `11 * root.sc` for body text
 

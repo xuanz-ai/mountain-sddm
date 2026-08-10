@@ -7,7 +7,7 @@ Rectangle {
     id: root
     width: Screen.width || 1920
     height: Screen.height || 1080
-    color: "#16161D"
+    color: "#0E0508"
 
     // ── Font Loaders ──────────────────────────────────────────────
     FontLoader {
@@ -42,7 +42,7 @@ Rectangle {
     Image {
         id: bgImage
         anchors.fill: parent
-        source: "mountain-night.jpg"
+        source: "background.jpg"
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
         opacity: 0.95
@@ -52,9 +52,9 @@ Rectangle {
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#e60a0b0d" }
-            GradientStop { position: 0.5; color: "#cc0a0b0d" }
-            GradientStop { position: 1.0; color: "#f20a0b0d" }
+            GradientStop { position: 0.0; color: "#e60E0508" }
+            GradientStop { position: 0.5; color: "#cc0E0508" }
+            GradientStop { position: 1.0; color: "#f20E0508" }
         }
     }
 
@@ -116,7 +116,7 @@ Rectangle {
             font.family: clockFont()
             font.pixelSize: Math.min(root.width * 0.10, 150)
             font.letterSpacing: 4
-            color: "#ffffff"
+            color: "#FAF4E7"
 
             Timer {
                 interval: 1000
@@ -137,11 +137,11 @@ Rectangle {
         Rectangle {
             id: loginPanel
             Layout.alignment: Qt.AlignHCenter
-            width: 380 * root.sc
-            height: loginGrid.height + 60 * root.sc
-            color: "#731A1A26"
+            width: 390 * root.sc
+            height: loginGrid.height + 50 * root.sc
+            color: "#1D0A15"
             radius: 6 * root.sc
-            border.color: "#0dffffff"
+            border.color: "#2d1423"
             border.width: Math.max(1, Math.round(1 * root.sc))
 
             ColumnLayout {
@@ -161,15 +161,15 @@ Rectangle {
                         font.pixelSize: Math.round(11 * root.sc)
                         font.weight: Font.Medium
                         font.letterSpacing: 2 * root.sc
-                        color: "#d5c89a"
+                        color: "#CE9451"
                         Layout.preferredWidth: 85 * root.sc
                     }
 
                     Rectangle {
                         Layout.fillWidth: true
                         height: 28 * root.sc
-                        color: "#cc1A1A26"
-                        border.color: "#0dffffff"
+                        color: "#cc2C121A"
+                        border.color: "#0dFAF4E7"
                         border.width: Math.max(1, Math.round(1 * root.sc))
                         radius: 4 * root.sc
 
@@ -184,7 +184,7 @@ Rectangle {
                                     text: "<"
                                     font.family: monoFont()
                                     font.pixelSize: Math.round(10 * root.sc)
-                                    color: "#b8d5c89a"
+                                    color: "#b8C68C4F"
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                 }
@@ -199,7 +199,7 @@ Rectangle {
                                 font.family: monoFont()
                                 font.pixelSize: Math.round(11 * root.sc)
                                 font.weight: Font.Medium
-                                color: "#d4d4d4"
+                                color: "#FAF4E7"
                                 horizontalAlignment: Text.AlignHCenter
                                 Layout.preferredWidth: 140 * root.sc
                             }
@@ -211,7 +211,7 @@ Rectangle {
                                     text: ">"
                                     font.family: monoFont()
                                     font.pixelSize: Math.round(10 * root.sc)
-                                    color: "#b8d5c89a"
+                                    color: "#b8C68C4F"
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                 }
@@ -234,15 +234,15 @@ Rectangle {
                         font.pixelSize: Math.round(11 * root.sc)
                         font.weight: Font.Medium
                         font.letterSpacing: 2 * root.sc
-                        color: "#d5c89a"
+                        color: "#CE9451"
                         Layout.preferredWidth: 85 * root.sc
                     }
 
                     Rectangle {
                         Layout.fillWidth: true
                         height: 28 * root.sc
-                        color: "#cc1A1A26"
-                        border.color: "#0dffffff"
+                        color: "#cc2C121A"
+                        border.color: "#0dFAF4E7"
                         border.width: Math.max(1, Math.round(1 * root.sc))
                         radius: 4 * root.sc
 
@@ -257,7 +257,7 @@ Rectangle {
                                     text: "<"
                                     font.family: monoFont()
                                     font.pixelSize: Math.round(10 * root.sc)
-                                    color: "#b8d5c89a"
+                                    color: "#b8C68C4F"
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                 }
@@ -271,7 +271,7 @@ Rectangle {
                                 text: userCombo.currentText || "Xuanz"
                                 font.family: monoBoldFont()
                                 font.pixelSize: Math.round(11 * root.sc)
-                                color: "#d4d4d4"
+                                color: "#FAF4E7"
                                 horizontalAlignment: Text.AlignHCenter
                                 Layout.preferredWidth: 140 * root.sc
                             }
@@ -283,7 +283,7 @@ Rectangle {
                                     text: ">"
                                     font.family: monoFont()
                                     font.pixelSize: Math.round(10 * root.sc)
-                                    color: "#b8d5c89a"
+                                    color: "#b8C68C4F"
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                 }
@@ -306,7 +306,7 @@ Rectangle {
                         font.pixelSize: Math.round(11 * root.sc)
                         font.weight: Font.Medium
                         font.letterSpacing: 2 * root.sc
-                        color: "#d5c89a"
+                        color: "#CE9451"
                         Layout.preferredWidth: 85 * root.sc
                     }
 
@@ -314,8 +314,8 @@ Rectangle {
                         id: passwordBox
                         Layout.fillWidth: true
                         height: 28 * root.sc
-                        color: "#cc1A1A26"
-                        border.color: passwordInput.activeFocus ? "#d5c89a" : "#0dffffff"
+                        color: "#cc2C121A"
+                        border.color: passwordInput.activeFocus ? "#914C05" : "#0dFAF4E7"
                         border.width: Math.max(1, Math.round(1 * root.sc))
                         radius: 4 * root.sc
 
@@ -326,7 +326,7 @@ Rectangle {
                             font.family: monoBoldFont()
                             font.pixelSize: Math.round(11 * root.sc)
                             font.letterSpacing: 3 * root.sc
-                            color: "#ffffff"
+                            color: "#FAF4E7"
                             echoMode: TextInput.Password
                             passwordCharacter: "•"
                             horizontalAlignment: TextInput.AlignHCenter
@@ -346,7 +346,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16 * sc
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 30 * sc
+        spacing: 40 * sc
         z: 10
 
         Repeater {
@@ -366,7 +366,7 @@ Rectangle {
                     text: modelData.label
                     font.family: monoFont()
                     font.pixelSize: Math.round(11 * sc)
-                    color: shortcutMouse.containsMouse ? "#d5c89a" : "#b6b09e"
+                    color: shortcutMouse.containsMouse ? "#914C05" : "#CE9451"
                 }
 
                 MouseArea {
@@ -384,7 +384,7 @@ Rectangle {
     Rectangle {
         id: loadingOverlay
         anchors.fill: parent
-        color: "#f2000000"
+        color: "#f20E0508"
         z: 50
         visible: false
         opacity: 0
@@ -409,7 +409,7 @@ Rectangle {
 
                 Rectangle {
                     width: 8 * sc; height: 8 * sc; radius: 4 * sc
-                    color: "#d5c89a"
+                    color: "#C68C4F"
                     SequentialAnimation on opacity {
                         running: loadingOverlay.visible
                         loops: Animation.Infinite
@@ -424,15 +424,15 @@ Rectangle {
                     font.family: monoBoldFont()
                     font.pixelSize: Math.round(11 * sc)
                     font.letterSpacing: 2 * sc
-                    color: "#b6b09e"
+                    color: "#C68C4F"
                 }
             }
 
             Rectangle {
                 Layout.fillWidth: true
                 height: 160 * sc
-                color: "#e6000000"
-                border.color: "#0dffffff"
+                color: "#e60E0508"
+                border.color: "#0dFAF4E7"
                 border.width: Math.max(1, Math.round(1 * sc))
                 radius: 4 * sc
                 clip: true
@@ -449,7 +449,7 @@ Rectangle {
                         text: model.text
                         font.family: monoFont()
                         font.pixelSize: Math.round(10 * sc)
-                        color: "#66b981"
+                        color: "#C68C4F"
                     }
 
                     onCountChanged: positionViewAtEnd()

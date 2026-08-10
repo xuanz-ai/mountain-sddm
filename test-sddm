@@ -2,7 +2,7 @@
 set -e
 
 THEME_DIR="$(cd "$(dirname "$0")" && pwd)"
-THEME_NAME="$(basename "$THEME_DIR")"
+THEME_NAME="qext-sddm"
 INSTALL_PATH="/usr/share/sddm/themes/$THEME_NAME"
 
 echo "==> Installing theme to $INSTALL_PATH"
